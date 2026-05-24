@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>HYTRIX — Premium Digital Agency</title>
+<meta name="description" content="HYTRIX is a premium digital agency delivering cutting-edge web design, branding, and digital transformation solutions."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#0b0b14;--bg3:#10101e;--surface:#12121f;--surface2:#1a1a2e;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --accent:#6c63ff;--accent2:#ff6584;--accent3:#00d4aa;--neon:#f5ff00;
+  --text:#f0f0ff;--muted:#7a7a9d;
+  --grad:linear-gradient(135deg,#6c63ff,#ff6584);--grad2:linear-gradient(135deg,#00d4aa,#6c63ff);
+  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden}
+::selection{background:#6c63ff44;color:#fff}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#0b0b14}
+::-webkit-scrollbar-thumb{background:#6c63ff;border-radius:2px}
+
+.logo{font-family:var(--font-head);font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;display:inline-flex;align-items:center}
+.logo-white{color:#ffffff;-webkit-text-fill-color:#ffffff}
+.logo-neon{color:var(--neon);-webkit-text-fill-color:var(--neon)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(5,5,8,0.6);border-bottom:1px solid var(--border);transition:all .3s}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.03em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--grad);border:none;color:#fff;padding:.6rem 1.4rem;border-radius:50px;font-family:var(--font-body);font-size:.9rem;font-weight:500;cursor:pointer;transition:opacity .2s,transform .2s}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+
+.glass{background:rgba(255,255,255,0.03);border:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.glass2{background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.15);backdrop-filter:blur(16px)}
+
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:float 8s ease-in-out infinite}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,#6c63ff,transparent 70%);top:-100px;left:-150px;animation-delay:0s}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,#ff6584,transparent 70%);bottom:-100px;right:-100px;animation-delay:-3s}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,#00d4aa,transparent 70%);top:40%;left:55%;animation-delay:-5s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(108,99,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.25);border-radius:50px;padding:.4rem 1rem;font-size:.8rem;font-weight:500;letter-spacing:.08em;color:#a09aff;margin-bottom:2rem;animation:fadeUp .8s ease both}
+.hero-badge-dot{width:6px;height:6px;background:var(--accent3);border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+h1.hero-title{font-family:var(--font-head);font-size:clamp(2.5rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem;animation:fadeUp .8s .1s ease both}
+.hero-title .grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:600px;margin:0 auto 2.5rem;font-weight:300;animation:fadeUp .8s .2s ease both}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn-primary{background:var(--grad);color:#fff;border:none;padding:.85rem 2rem;border-radius:50px;font-size:1rem;font-weight:500;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 40px rgba(108,99,255,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(108,99,255,.5)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);padding:.85rem 2rem;border-radius:50px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s}
+.btn-outline:hover{border-color:var(--accent);color:#fff;background:rgba(108,99,255,.1)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;animation:fadeUp .8s .4s ease both;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:var(--font-head);font-size:2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.8rem;color:var(--muted);letter-spacing:.05em;margin-top:.2rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+section{padding:100px 5%}
+.section-label{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
+h2.section-title{font-family:var(--font-head);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem}
+.section-sub{color:var(--muted);max-width:540px;font-size:1.05rem;font-weight:300}
+.section-head{margin-bottom:4rem}
+.section-head.center{text-align:center}
+.section-head.center .section-sub{margin:0 auto}
+
+#services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.service-card{padding:2rem;border-radius:20px;transition:transform .3s,border-color .3s;cursor:default;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .3s;background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(255,101,132,.05))}
+.service-card:hover{transform:translateY(-6px)}
+.service-card:hover::before{opacity:1}
+.service-card:hover{border-color:rgba(108,99,255,.25)!important}
+.service-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;background:var(--grad)}
+.service-title{font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:.75rem}
+.service-desc{color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.7}
+.service-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.tag{font-size:.75rem;padding:.3rem .7rem;border-radius:20px;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.15);color:#a09aff;font-weight:500}
+
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.portfolio-card{border-radius:20px;overflow:hidden;position:relative;cursor:pointer;transition:transform .3s,box-shadow .3s;-webkit-tap-highlight-color:transparent}
+.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(108,99,255,.2)}
+.portfolio-card:active{transform:scale(.97);box-shadow:0 4px 20px rgba(108,99,255,.15)}
+.portfolio-img{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.portfolio-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.portfolio-overlay{position:absolute;inset:0;background:rgba(5,5,8,.75);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.portfolio-card:hover .portfolio-overlay,.portfolio-card.touched .portfolio-overlay{opacity:1}
+.overlay-btn{background:var(--grad);color:#fff;border:none;padding:.7rem 1.5rem;border-radius:50px;font-size:.9rem;font-weight:500;cursor:pointer;transition:transform .15s}
+.overlay-btn:active{transform:scale(.95)}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;z-index:2000;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity .3s;pointer-events:none}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+.modal{background:#10101e;border:1px solid rgba(108,99,255,.2);border-radius:24px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;transform:translateY(30px) scale(.97);transition:transform .3s;position:relative}
+.modal-backdrop.open .modal{transform:none}
+.modal-thumb{width:100%;height:220px;overflow:hidden;border-radius:24px 24px 0 0;position:relative}
+.modal-thumb svg{width:100%;height:100%}
+.modal-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;background:rgba(5,5,8,.8);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;-webkit-tap-highlight-color:transparent}
+.modal-close:hover{background:rgba(108,99,255,.3)}
+.modal-body{padding:2rem}
+.modal-cat{font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;margin-bottom:.5rem}
+.modal-title{font-family:var(--font-head);font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:1rem}
+.modal-desc{color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.8;margin-bottom:1.5rem}
+.modal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.modal-stat{background:rgba(108,99,255,.07);border:1px solid rgba(108,99,255,.12);border-radius:14px;padding:1rem;text-align:center}
+.modal-stat-num{font-family:var(--font-head);font-size:1.4rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.modal-stat-label{font-size:.7rem;color:var(--muted);letter-spacing:.05em;margin-top:.2rem}
+.modal-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.modal-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.modal-cta .btn-primary{padding:.75rem 1.5rem;font-size:.9rem}
+.modal-cta .btn-outline{padding:.75rem 1.5rem;font-size:.9rem}
+.portfolio-info{padding:1.5rem}
+.portfolio-cat{font-size:.75rem;font-weight:600;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem}
+.portfolio-name{font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.portfolio-desc{color:var(--muted);font-size:.9rem;font-weight:300}
+
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.demo-card{border-radius:20px;overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;cursor:pointer}
+.demo-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(108,99,255,.2)}
+.demo-thumb{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.demo-thumb svg{position:absolute;inset:0;width:100%;height:100%}.demo-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.55) 100%)}
+.demo-icon{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.demo-live-badge{position:absolute;top:1rem;right:1rem;background:rgba(0,212,170,.15);border:1px solid rgba(0,212,170,.3);color:var(--accent3);font-size:.7rem;font-weight:600;padding:.3rem .75rem;border-radius:50px;letter-spacing:.05em}
+.demo-info{padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.demo-cat{font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.demo-name{font-family:var(--font-head);font-size:1.1rem;font-weight:700}
+.demo-desc{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.6;flex:1}
+.demo-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.demo-link{margin-top:1rem;font-size:.85rem;font-weight:600;color:var(--accent);letter-spacing:.02em;transition:gap .2s}
+.demo-card:hover .demo-link{color:#fff}
+
+#pricing{background:var(--bg2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;align-items:stretch}
+.pricing-card{border-radius:24px;padding:2.5rem;position:relative;transition:transform .3s;display:flex;flex-direction:column}
+.pricing-card:hover{transform:translateY(-6px)}
+.pricing-featured{background:linear-gradient(135deg,rgba(108,99,255,.15),rgba(255,101,132,.08));border-color:rgba(108,99,255,.3)!important;transform:scale(1.04)}
+.pricing-featured:hover{transform:scale(1.04) translateY(-6px)}
+.pricing-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.75rem;font-weight:600;padding:.35rem 1.2rem;border-radius:50px;white-space:nowrap;letter-spacing:.05em}
+.pricing-plan{font-family:var(--font-head);font-size:.85rem;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem}
+.pricing-price{font-family:var(--font-head);font-size:1.7rem;font-weight:800;line-height:1.2;margin-bottom:.4rem;word-break:break-word}
+.pricing-price span{font-size:.9rem;font-weight:400;color:var(--muted)}
+.pricing-period{color:var(--muted);font-size:.85rem;margin-bottom:0}
+.pricing-divider{height:1px;background:var(--border);margin:1.5rem 0}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;flex:1}
+.pricing-features li{display:flex;align-items:center;gap:.75rem;font-size:.95rem}
+.pricing-features li::before{content:'✓';width:20px;height:20px;border-radius:50%;background:rgba(0,212,170,.15);color:var(--accent3);font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pricing-features li.no::before{content:'×';background:rgba(255,100,100,.1);color:#ff6464}
+.pricing-features li.no{color:var(--muted)}
+.btn-plan{width:100%;padding:.9rem;border-radius:50px;font-family:var(--font-body);font-size:.95rem;font-weight:500;cursor:pointer;transition:all .2s;border:1px solid var(--border2);background:transparent;color:var(--text);margin-top:auto}
+.btn-plan:hover{border-color:var(--accent);background:rgba(108,99,255,.1)}
+.btn-plan.primary{background:var(--grad);border:none;color:#fff;box-shadow:0 0 30px rgba(108,99,255,.3)}
+.btn-plan.primary:hover{box-shadow:0 0 50px rgba(108,99,255,.5);transform:translateY(-1px)}
+
+
+#faq{background:var(--bg2)}
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-item{border-radius:16px;margin-bottom:.75rem;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(108,99,255,.25)!important}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.5rem;cursor:pointer;font-family:var(--font-head);font-size:1rem;font-weight:600;gap:1rem}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:.9rem;color:var(--muted)}
+.faq-item.open .faq-icon{background:var(--grad);border-color:transparent;color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:0 1.5rem 1.3rem;color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.8}
+
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1100px}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.contact-item{display:flex;align-items:center;gap:1rem}
+.contact-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.2)}
+.contact-detail h4{font-family:var(--font-head);font-size:.9rem;font-weight:700;margin-bottom:.2rem}
+.contact-detail p{color:var(--muted);font-size:.9rem}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.5rem}
+.form-group label{font-size:.85rem;font-weight:500;color:var(--muted);letter-spacing:.03em}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:.85rem 1rem;color:var(--text);font-family:var(--font-body);font-size:.95rem;transition:border-color .2s;outline:none;resize:vertical}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);background:rgba(108,99,255,.05)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted)}
+.form-group textarea{min-height:130px}
+.form-group select option{background:var(--bg3)}
+.btn-submit{background:var(--grad);color:#fff;border:none;padding:1rem 2rem;border-radius:50px;font-family:var(--font-body);font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;width:100%;box-shadow:0 0 30px rgba(108,99,255,.3)}
+.btn-submit:hover{box-shadow:0 0 50px rgba(108,99,255,.5);transform:translateY(-2px)}
+.form-success{display:none;text-align:center;padding:2rem;color:var(--accent3)}
+.form-success.show{display:block}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 5% 30px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-desc{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.7;max-width:260px;margin-bottom:1.5rem}
+.footer-col h5{font-family:var(--font-head);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col a{color:rgba(240,240,255,.55);text-decoration:none;font-size:.9rem;font-weight:300;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+.footer-copy{color:var(--muted);font-size:.85rem}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-legal a:hover{color:var(--text)}
+
+.wa-btn{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waFloat 3s ease-in-out infinite}
+.wa-btn:hover{transform:scale(1.12);box-shadow:0 6px 30px rgba(37,211,102,.6)}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.wa-btn svg{width:30px;height:30px;fill:#fff}
+.wa-tooltip{position:absolute;right:70px;background:#1a1a2e;border:1px solid var(--border2);color:var(--text);font-size:.8rem;font-weight:500;white-space:nowrap;padding:.5rem 1rem;border-radius:50px;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--font-body)}
+.wa-btn:hover .wa-tooltip{opacity:1}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  nav{padding:0 4%}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--bg);padding:80px 5% 3rem;flex-direction:column;gap:2rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--text);text-decoration:none;font-family:var(--font-head);font-size:1.5rem;font-weight:700}
+  .contact-wrap{grid-template-columns:1fr!important}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  section{padding:70px 5%}
+  .hero-stats{gap:2rem}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:9999;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.45);animation:waPulse 2.5s ease-in-out infinite;transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,.65);animation:none}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 4px 24px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,0)}}
+.wa-float-tooltip{position:absolute;right:70px;background:#1a1a2e;border:1px solid rgba(255,255,255,.12);color:#fff;font-family:var(--font-body);font-size:.8rem;font-weight:500;white-space:nowrap;padding:.45rem 1rem;border-radius:50px;opacity:0;pointer-events:none;transition:opacity .2s}
+.wa-float:hover .wa-float-tooltip{opacity:1}
+
+#why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.why-card{padding:2rem;border-radius:20px;display:flex;gap:1.5rem;align-items:flex-start;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .3s;background:linear-gradient(135deg,rgba(108,99,255,.06),rgba(255,101,132,.04))}
+.why-card:hover{transform:translateY(-5px);border-color:rgba(108,99,255,.25)!important}
+.why-card:hover::before{opacity:1}
+.why-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.why-body{flex:1}
+.why-title{font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
+.why-desc{color:var(--muted);font-size:.93rem;font-weight:300;line-height:1.75}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <span class="logo"><span class="logo-white">HY</span><span class="logo-neon">TR</span><span class="logo-white">IX</span></span>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">Why Us</a></li>
+    
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="scrollToSection('#contact')">Get Started</button>
+  <button class="hamburger" id="ham" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#portfolio" onclick="closeMobile()">Work</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-title">We Build<br><span class="grad-text">Digital Experiences</span><br>That Convert</h1>
+    <p class="hero-sub">HYTRIX is a premium digital agency crafting bold brands, high-performance websites, and scalable digital products for visionary companies.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollToSection('#contact')">Start Your Project →</button>
+      <button class="btn-outline" onclick="scrollToSection('#portfolio')">View Our Work</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head center reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Services Engineered<br>for Growth</h2>
+    <p class="section-sub">From pixel-perfect design to full-stack development — we deliver end-to-end digital solutions built to perform.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card glass reveal"><div class="service-icon">✦</div><div class="service-title">UI/UX Design</div><p class="service-desc">We craft intuitive, visually stunning interfaces grounded in user research and conversion psychology. Every pixel is intentional.</p><div class="service-tags"><span class="tag">Figma</span><span class="tag">Design System</span><span class="tag">Prototyping</span></div></div>
+    <div class="service-card glass reveal" style="transition-delay:.1s"><div class="service-icon" style="background:var(--grad2)">⬡</div><div class="service-title">Web Development</div><p class="service-desc">High-performance websites and apps built on modern stacks. Fast, accessible, and engineered to scale from day one.</p><div class="service-tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span></div></div>
+    <div class="service-card glass reveal" style="transition-delay:.2s"><div class="service-icon" style="background:linear-gradient(135deg,#ff6584,#ff9a9e)">◈</div><div class="service-title">Brand Identity</div><p class="service-desc">Strategic branding that positions you ahead of the curve. Logo, typography, color systems, and guidelines that last decades.</p><div class="service-tags"><span class="tag">Strategy</span><span class="tag">Identity</span><span class="tag">Guidelines</span></div></div>
+    <div class="service-card glass reveal" style="transition-delay:.3s"><div class="service-icon" style="background:linear-gradient(135deg,#00d4aa,#00b0ff)">⬟</div><div class="service-title">E-Commerce</div><p class="service-desc">Conversion-optimized storefronts with seamless checkout flows, inventory management, and payment integrations.</p><div class="service-tags"><span class="tag">Shopify</span><span class="tag">WooCommerce</span><span class="tag">Custom</span></div></div>
+    <div class="service-card glass reveal" style="transition-delay:.4s"><div class="service-icon" style="background:linear-gradient(135deg,#ffd700,#ff8c00)">✦</div><div class="service-title">Logo Design</div><p class="service-desc">Memorable, versatile logos crafted to represent your brand identity — delivered in all formats, ready for print and digital use.</p><div class="service-tags"><span class="tag">Logo</span><span class="tag">Branding</span><span class="tag">Illustrator</span></div></div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="section-head center reveal">
+    <div class="section-label">Live Demos</div>
+    <h2 class="section-title">Real Websites,<br>Built by <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">HYTRIX</span></h2>
+    <p class="section-sub">Click any card to preview the demo site — see exactly what we build for our clients.</p>
+  </div>
+  <div class="demo-grid">
+
+    <div class="demo-card glass reveal" onclick="openDemo('restaurant')">
+      <div class="demo-thumb">
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <rect width="400" height="200" fill="#0c0400"/>
+  <rect width="400" height="200" fill="url(#rg1)"/>
+  <defs>
+    <radialGradient id="rg1" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#f97316" stop-opacity=".18"/><stop offset="100%" stop-color="#0c0400" stop-opacity="0"/></radialGradient>
+    <pattern id="rpat" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="20" stroke="#f97316" stroke-width=".4" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="400" height="200" fill="url(#rpat)"/>
+  <!-- Nav bar -->
+  <rect x="0" y="0" width="400" height="28" fill="rgba(12,4,0,.9)"/>
+  <rect x="0" y="27" width="400" height="1" fill="#f97316" opacity=".15"/>
+  <text x="20" y="18" font-family="serif" font-size="11" font-weight="900" fill="#f97316">SpiceRoute</text>
+  <text x="240" y="18" font-family="sans-serif" font-size="7" fill="#c4a882">Menu</text>
+  <text x="270" y="18" font-family="sans-serif" font-size="7" fill="#c4a882">About</text>
+  <text x="300" y="18" font-family="sans-serif" font-size="7" fill="#c4a882">Gallery</text>
+  <rect x="340" y="9" width="46" height="13" rx="6" fill="#f97316"/>
+  <text x="363" y="18" font-family="sans-serif" font-size="7" fill="#fff" text-anchor="middle">📞 Order</text>
+  <!-- Hero area -->
+  <text x="200" y="65" font-family="serif" font-size="9" fill="#f97316" text-anchor="middle" letter-spacing="3">✦ AUTHENTIC SOUTH INDIAN CUISINE</text>
+  <text x="200" y="86" font-family="serif" font-size="19" font-weight="900" fill="#f5ede0" text-anchor="middle">A Taste of Tradition</text>
+  <text x="200" y="104" font-family="serif" font-size="19" font-weight="900" fill="#f97316" text-anchor="middle">in Every Bite</text>
+  <text x="200" y="118" font-family="sans-serif" font-size="7" fill="#c4a882" text-anchor="middle">Handcrafted recipes · Made fresh daily · Tamil Nadu</text>
+  <!-- Buttons -->
+  <rect x="120" y="126" width="74" height="18" rx="9" fill="#f97316"/>
+  <text x="157" y="138" font-family="sans-serif" font-size="7" fill="#fff" text-anchor="middle">🍽️ View Menu</text>
+  <rect x="204" y="126" width="74" height="18" rx="9" fill="transparent" stroke="#f97316" stroke-opacity=".5" stroke-width="1"/>
+  <text x="241" y="138" font-family="sans-serif" font-size="7" fill="#f97316" text-anchor="middle">Our Story</text>
+  <!-- Mini menu cards -->
+  <rect x="20" y="155" width="80" height="36" rx="8" fill="#1a0900" stroke="#f97316" stroke-opacity=".15" stroke-width=".5"/>
+  <text x="30" y="168" font-family="sans-serif" font-size="14">🥘</text>
+  <text x="50" y="167" font-family="sans-serif" font-size="7" font-weight="700" fill="#f5ede0">Chettinad</text>
+  <text x="50" y="177" font-family="sans-serif" font-size="6" fill="#f97316">₹220</text>
+  <rect x="110" y="155" width="80" height="36" rx="8" fill="#1a0900" stroke="#f97316" stroke-opacity=".15" stroke-width=".5"/>
+  <text x="120" y="168" font-family="sans-serif" font-size="14">🍛</text>
+  <text x="140" y="167" font-family="sans-serif" font-size="7" font-weight="700" fill="#f5ede0">Biryani</text>
+  <text x="140" y="177" font-family="sans-serif" font-size="6" fill="#f97316">₹320</text>
+  <rect x="200" y="155" width="80" height="36" rx="8" fill="#1a0900" stroke="#f97316" stroke-opacity=".15" stroke-width=".5"/>
+  <text x="210" y="168" font-family="sans-serif" font-size="14">🫓</text>
+  <text x="230" y="167" font-family="sans-serif" font-size="7" font-weight="700" fill="#f5ede0">Dosa</text>
+  <text x="230" y="177" font-family="sans-serif" font-size="6" fill="#f97316">₹120</text>
+  <rect x="290" y="155" width="80" height="36" rx="8" fill="#1a0900" stroke="#f97316" stroke-opacity=".15" stroke-width=".5"/>
+  <text x="300" y="168" font-family="sans-serif" font-size="14">☕</text>
+  <text x="320" y="167" font-family="sans-serif" font-size="7" font-weight="700" fill="#f5ede0">Filter Coffee</text>
+  <text x="320" y="177" font-family="sans-serif" font-size="6" fill="#f97316">₹60</text>
+</svg>
+        <div class="demo-thumb-overlay"></div>
+        <div class="demo-live-badge">● DEMO</div>
+      </div>
+      <div class="demo-info">
+        <div class="demo-cat">Food & Beverage</div>
+        <div class="demo-name">SpiceRoute Restaurant</div>
+        <p class="demo-desc">Online menu, table booking &amp; contact enquiry system.</p>
+        <div class="demo-tags"><span class="tag">Restaurant</span><span class="tag">Booking</span><span class="tag">Menu</span></div>
+        <div class="demo-link">Preview Demo →</div>
+      </div>
+    </div>
+
+    <div class="demo-card glass reveal" onclick="openDemo('fashion')" style="transition-delay:.1s">
+      <div class="demo-thumb">
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="fg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a1410"/><stop offset="100%" stop-color="#2d1f14"/></linearGradient>
+    <radialGradient id="fg2" cx="30%" cy="60%" r="50%"><stop offset="0%" stop-color="#c9956a" stop-opacity=".12"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  </defs>
+  <!-- Left half dark -->
+  <rect width="200" height="200" fill="url(#fg1)"/>
+  <rect width="200" height="200" fill="url(#fg2)"/>
+  <!-- Right half light -->
+  <rect x="200" y="0" width="200" height="200" fill="#ede8e1"/>
+  <rect x="200" y="0" width="200" height="200" fill="url(#fg2)"/>
+  <!-- Nav -->
+  <rect x="0" y="0" width="400" height="26" fill="rgba(248,245,240,.95)"/>
+  <rect x="0" y="25" width="400" height="1" fill="rgba(26,20,16,.08)"/>
+  <text x="20" y="17" font-family="serif" font-size="11" font-weight="700" fill="#1a1410" letter-spacing="2">LUXESTORE</text>
+  <text x="200" y="17" font-family="sans-serif" font-size="7" fill="#8a7060" text-anchor="middle">Women · Men · New In · Sale</text>
+  <rect x="348" y="8" width="40" height="12" fill="#1a1410"/>
+  <text x="368" y="17" font-family="sans-serif" font-size="6" fill="#f8f5f0" text-anchor="middle">Shop Now</text>
+  <!-- Left hero content -->
+  <text x="20" y="52" font-family="sans-serif" font-size="6" fill="#c9956a" letter-spacing="2">NEW COLLECTION · 2025</text>
+  <text x="20" y="72" font-family="serif" font-size="18" font-weight="700" fill="#f5ede4">Wear What</text>
+  <text x="20" y="90" font-family="serif" font-size="18" font-weight="700" fill="#f5ede4">You Feel</text>
+  <text x="20" y="107" font-family="sans-serif" font-size="7" fill="#8a7060">Curated fashion · Premium fabrics</text>
+  <text x="20" y="118" font-family="sans-serif" font-size="7" fill="#8a7060">Delivered to your door.</text>
+  <rect x="20" y="128" width="80" height="16" fill="url(#fgold)"/>
+  <defs><linearGradient id="fgold" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c9956a"/><stop offset="100%" stop-color="#e8b88a"/></linearGradient></defs>
+  <text x="60" y="139" font-family="sans-serif" font-size="7" fill="#1a1410" text-anchor="middle">Shop Collection</text>
+  <!-- Right hero emoji -->
+  <text x="300" y="140" font-family="sans-serif" font-size="80" text-anchor="middle" opacity=".7">👗</text>
+  <!-- Product cards at bottom -->
+  <rect x="0" y="158" width="400" height="42" fill="#f8f5f0"/>
+  <rect x="10" y="163" width="85" height="30" fill="#fff" rx="4" stroke="rgba(26,20,16,.06)" stroke-width=".5"/>
+  <text x="22" y="175" font-family="sans-serif" font-size="14">👗</text>
+  <text x="42" y="173" font-family="sans-serif" font-size="7" font-weight="600" fill="#1a1410">Floral Dress</text>
+  <text x="42" y="183" font-family="sans-serif" font-size="6" fill="#c9956a">₹1,299</text>
+  <rect x="105" y="163" width="85" height="30" fill="#fff" rx="4" stroke="rgba(26,20,16,.06)" stroke-width=".5"/>
+  <text x="117" y="175" font-family="sans-serif" font-size="14">👔</text>
+  <text x="137" y="173" font-family="sans-serif" font-size="7" font-weight="600" fill="#1a1410">Linen Shirt</text>
+  <text x="137" y="183" font-family="sans-serif" font-size="6" fill="#c9956a">₹899</text>
+  <rect x="200" y="163" width="85" height="30" fill="#fff" rx="4" stroke="rgba(26,20,16,.06)" stroke-width=".5"/>
+  <text x="212" y="175" font-family="sans-serif" font-size="14">👖</text>
+  <text x="232" y="173" font-family="sans-serif" font-size="7" font-weight="600" fill="#1a1410">Slim Chinos</text>
+  <text x="232" y="183" font-family="sans-serif" font-size="6" fill="#c9956a">₹1,099</text>
+  <rect x="295" y="163" width="95" height="30" fill="#fff" rx="4" stroke="rgba(26,20,16,.06)" stroke-width=".5"/>
+  <text x="307" y="175" font-family="sans-serif" font-size="14">🧥</text>
+  <text x="327" y="173" font-family="sans-serif" font-size="7" font-weight="600" fill="#1a1410">Blazer</text>
+  <text x="327" y="183" font-family="sans-serif" font-size="6" fill="#c9956a">₹2,499</text>
+</svg>
+        <div class="demo-thumb-overlay"></div>
+        <div class="demo-live-badge">● DEMO</div>
+      </div>
+      <div class="demo-info">
+        <div class="demo-cat">E-Commerce</div>
+        <div class="demo-name">LuxeStore Fashion</div>
+        <p class="demo-desc">Premium clothing store with products, cart & contact.</p>
+        <div class="demo-tags"><span class="tag">E-Commerce</span><span class="tag">Products</span><span class="tag">Modern UI</span></div>
+        <div class="demo-link">Preview Demo →</div>
+      </div>
+    </div>
+
+    <div class="demo-card glass reveal" onclick="openDemo('clinic')" style="transition-delay:.2s">
+      <div class="demo-thumb">
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="cg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d2b22"/><stop offset="100%" stop-color="#0a3d2e"/></linearGradient>
+    <radialGradient id="cg2" cx="80%" cy="20%" r="50%"><stop offset="0%" stop-color="#00d4aa" stop-opacity=".15"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  </defs>
+  <rect width="400" height="200" fill="#f0f7f5"/>
+  <!-- Nav -->
+  <rect x="0" y="0" width="400" height="28" fill="rgba(240,247,245,.97)"/>
+  <rect x="0" y="27" width="400" height="1" fill="rgba(0,160,120,.1)"/>
+  <rect x="18" y="8" width="20" height="12" rx="3" fill="#00a078"/>
+  <text x="29" y="17" font-family="sans-serif" font-size="8" fill="#fff" text-anchor="middle">🏥</text>
+  <text x="45" y="18" font-family="sans-serif" font-size="9" font-weight="800" fill="#00a078">CarePoint Clinic</text>
+  <text x="210" y="18" font-family="sans-serif" font-size="7" fill="#4a7a6a">Services</text>
+  <text x="255" y="18" font-family="sans-serif" font-size="7" fill="#4a7a6a">Doctors</text>
+  <text x="298" y="18" font-family="sans-serif" font-size="7" fill="#4a7a6a">About</text>
+  <rect x="340" y="8" width="46" height="13" rx="4" fill="#00a078"/>
+  <text x="363" y="17" font-family="sans-serif" font-size="7" fill="#fff" text-anchor="middle">Book Now</text>
+  <!-- Hero dark section -->
+  <rect x="0" y="28" width="260" height="100" fill="url(#cg1)"/>
+  <rect x="0" y="28" width="260" height="100" fill="url(#cg2)"/>
+  <text x="20" y="52" font-family="sans-serif" font-size="6" fill="#00d4aa" letter-spacing="2">✦ YOUR HEALTH, OUR PRIORITY</text>
+  <text x="20" y="70" font-family="sans-serif" font-size="16" font-weight="800" fill="#f0faf7">Trusted Care,</text>
+  <text x="20" y="88" font-family="sans-serif" font-size="16" font-weight="800" fill="#00d4aa">Every Step</text>
+  <text x="20" y="103" font-family="sans-serif" font-size="6.5" fill="#7ab89a">Experienced specialists · Modern facilities</text>
+  <rect x="20" y="112" width="78" height="14" rx="4" fill="#00d4aa"/>
+  <text x="59" y="121" font-family="sans-serif" font-size="6.5" fill="#0d2b22" text-anchor="middle">📅 Book Appointment</text>
+  <!-- Badge -->
+  <rect x="200" y="45" width="55" height="40" rx="8" fill="rgba(0,212,170,.08)" stroke="rgba(0,212,170,.2)" stroke-width="1"/>
+  <text x="227" y="68" font-family="sans-serif" font-size="14" font-weight="800" fill="#00d4aa" text-anchor="middle">5000+</text>
+  <text x="227" y="80" font-family="sans-serif" font-size="6" fill="#7ab89a" text-anchor="middle">Happy Patients</text>
+  <!-- Services section -->
+  <rect x="260" y="28" width="140" height="100" fill="#fff"/>
+  <text x="330" y="48" font-family="sans-serif" font-size="6" fill="#00a078" text-anchor="middle" letter-spacing="1.5">OUR SPECIALITIES</text>
+  <text x="330" y="62" font-family="sans-serif" font-size="10" font-weight="800" fill="#0d2b22" text-anchor="middle">Services</text>
+  <rect x="270" y="70" width="55" height="24" rx="6" fill="#f0f7f5" stroke="rgba(0,160,120,.1)" stroke-width=".5"/>
+  <text x="278" y="82" font-family="sans-serif" font-size="12">🫀</text>
+  <text x="293" y="81" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#0d2b22">Cardio</text>
+  <text x="293" y="90" font-family="sans-serif" font-size="5.5" fill="#4a7a6a">Heart</text>
+  <rect x="335" y="70" width="55" height="24" rx="6" fill="#f0f7f5" stroke="rgba(0,160,120,.1)" stroke-width=".5"/>
+  <text x="343" y="82" font-family="sans-serif" font-size="12">🧠</text>
+  <text x="358" y="81" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#0d2b22">Neuro</text>
+  <text x="358" y="90" font-family="sans-serif" font-size="5.5" fill="#4a7a6a">Brain</text>
+  <rect x="270" y="100" width="55" height="24" rx="6" fill="#f0f7f5" stroke="rgba(0,160,120,.1)" stroke-width=".5"/>
+  <text x="278" y="112" font-family="sans-serif" font-size="12">🦴</text>
+  <text x="293" y="111" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#0d2b22">Ortho</text>
+  <text x="293" y="120" font-family="sans-serif" font-size="5.5" fill="#4a7a6a">Bones</text>
+  <rect x="335" y="100" width="55" height="24" rx="6" fill="#f0f7f5" stroke="rgba(0,160,120,.1)" stroke-width=".5"/>
+  <text x="343" y="112" font-family="sans-serif" font-size="12">🦷</text>
+  <text x="358" y="111" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#0d2b22">Dental</text>
+  <text x="358" y="120" font-family="sans-serif" font-size="5.5" fill="#4a7a6a">Oral</text>
+  <!-- Doctors section -->
+  <rect x="0" y="128" width="400" height="72" fill="#f0f7f5"/>
+  <text x="200" y="146" font-family="sans-serif" font-size="9" font-weight="800" fill="#0d2b22" text-anchor="middle">Our Doctors</text>
+  <rect x="20" y="153" width="110" height="38" rx="8" fill="#fff" stroke="rgba(0,160,120,.08)" stroke-width=".5"/>
+  <text x="35" y="175" font-family="sans-serif" font-size="20">👨‍⚕️</text>
+  <text x="62" y="170" font-family="sans-serif" font-size="7" font-weight="700" fill="#0d2b22">Dr. Ramesh Kumar</text>
+  <text x="62" y="180" font-family="sans-serif" font-size="6" fill="#4a7a6a">Cardiologist · 15 yrs</text>
+  <rect x="145" y="153" width="110" height="38" rx="8" fill="#fff" stroke="rgba(0,160,120,.08)" stroke-width=".5"/>
+  <text x="160" y="175" font-family="sans-serif" font-size="20">👩‍⚕️</text>
+  <text x="187" y="170" font-family="sans-serif" font-size="7" font-weight="700" fill="#0d2b22">Dr. Priya Lakshmi</text>
+  <text x="187" y="180" font-family="sans-serif" font-size="6" fill="#4a7a6a">Neurologist · 12 yrs</text>
+  <rect x="270" y="153" width="110" height="38" rx="8" fill="#fff" stroke="rgba(0,160,120,.08)" stroke-width=".5"/>
+  <text x="285" y="175" font-family="sans-serif" font-size="20">👨‍⚕️</text>
+  <text x="312" y="170" font-family="sans-serif" font-size="7" font-weight="700" fill="#0d2b22">Dr. Suresh Babu</text>
+  <text x="312" y="180" font-family="sans-serif" font-size="6" fill="#4a7a6a">Orthopaedic · 10 yrs</text>
+</svg>
+        <div class="demo-thumb-overlay"></div>
+        <div class="demo-live-badge">● DEMO</div>
+      </div>
+      <div class="demo-info">
+        <div class="demo-cat">Healthcare</div>
+        <div class="demo-name">CarePoint Clinic</div>
+        <p class="demo-desc">Doctor booking, services & patient enquiry portal.</p>
+        <div class="demo-tags"><span class="tag">Clinic</span><span class="tag">Appointments</span><span class="tag">Mobile</span></div>
+        <div class="demo-link">Preview Demo →</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Demo Viewer Modal -->
+<div id="demoModal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(5,5,8,.92);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:1rem">
+  <div style="width:100%;max-width:900px;height:90vh;background:#10101e;border-radius:20px;border:1px solid rgba(108,99,255,.2);overflow:hidden;display:flex;flex-direction:column;position:relative">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem;background:#0b0b14;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0">
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block"></span>
+      </div>
+      <span id="demoTitle" style="font-family:var(--font-head);font-size:.85rem;font-weight:600;color:var(--muted)">Demo Preview</span>
+      <button onclick="closeDemo()" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center">✕</button>
+    </div>
+    <div id="demoContent" style="flex:1;overflow-y:auto;font-family:'DM Sans',sans-serif"></div>
+  </div>
+</div>
+
+
+<section id="pricing">
+  <div class="section-head center reveal">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Transparent Pricing,<br>Exceptional Value</h2>
+    <p class="section-sub">No hidden fees, no surprises. Choose the plan that fits your ambition.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card glass reveal"><div class="pricing-plan">Starter</div><div class="pricing-price">₹2,999 – ₹4,999<span>/project</span></div><div class="pricing-period">Perfect for small businesses</div><div class="pricing-divider"></div><ul class="pricing-features"><li>1–3 pages</li><li>Mobile responsive</li><li>Contact button</li><li>Contact section</li><li>Basic SEO</li><li>Hosting setup</li><li class="no">Custom animations</li><li class="no">Priority support</li></ul><button class="btn-plan" onclick="scrollToSection('#contact')">Get Started</button></div>
+    <div class="pricing-card glass2 pricing-featured reveal" style="transition-delay:.1s"><div class="pricing-badge">MOST POPULAR</div><div class="pricing-plan">Business Website</div><div class="pricing-price">₹6,999 – ₹14,999<span>/project</span></div><div class="pricing-period">For growing businesses</div><div class="pricing-divider"></div><ul class="pricing-features"><li>5–10 pages</li><li>Modern UI</li><li>Contact forms</li><li>Gallery</li><li>Animations</li><li>SEO setup</li><li>Admin editing support</li></ul><button class="btn-plan primary" onclick="scrollToSection('#contact')">Start Growing →</button></div>
+    <div class="pricing-card glass reveal" style="transition-delay:.2s"><div class="pricing-plan">Premium / Custom</div><div class="pricing-price">₹20,000<span>+/project</span></div><div class="pricing-period">For established companies</div><div class="pricing-divider"></div><ul class="pricing-features"><li>Login system</li><li>Database</li><li>Admin panel</li><li>Payment integration</li><li>Advanced UI/UX</li></ul><button class="btn-plan" onclick="scrollToSection('#contact')">Let's Talk</button></div>
+  </div>
+</section>
+
+
+<section id="why">
+  <div class="section-head center reveal">
+    <div class="section-label">Why Us</div>
+    <h2 class="section-title">Why Choose<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">HYTRIX</span></h2>
+    <p class="section-sub">Everything you need to dominate online — built faster, smarter, and better than the rest.</p>
+  </div>
+  <div class="why-grid">
+
+    <div class="why-card glass reveal">
+      <div class="why-icon" style="background:linear-gradient(135deg,#6c63ff,#a29bfe)">⚡</div>
+      <div class="why-body">
+        <h3 class="why-title">Fast Delivery</h3>
+        <p class="why-desc">Most projects shipped in 2–4 weeks. We run lean, agile workflows with daily check-ins so you're never left waiting. Speed without cutting corners.</p>
+      </div>
+    </div>
+
+    <div class="why-card glass reveal" style="transition-delay:.08s">
+      <div class="why-icon" style="background:linear-gradient(135deg,#ff6584,#ff9a9e)">✦</div>
+      <div class="why-body">
+        <h3 class="why-title">Modern UI/UX</h3>
+        <p class="why-desc">We craft interfaces that stop the scroll. Every layout, animation, and colour choice is intentional — designed to convert visitors into customers.</p>
+      </div>
+    </div>
+
+    <div class="why-card glass reveal" style="transition-delay:.16s">
+      <div class="why-icon" style="background:linear-gradient(135deg,#00d4aa,#00b0ff)">📱</div>
+      <div class="why-body">
+        <h3 class="why-title">Mobile Responsive</h3>
+        <p class="why-desc">Pixel-perfect on every screen — phone, tablet, or desktop. Over 70% of your traffic is mobile; we make sure they get the best experience.</p>
+      </div>
+    </div>
+
+    <div class="why-card glass reveal" style="transition-delay:.24s">
+      <div class="why-icon" style="background:linear-gradient(135deg,#ffd700,#ff8c00)">🔍</div>
+      <div class="why-body">
+        <h3 class="why-title">SEO Friendly</h3>
+        <p class="why-desc">Built for Google from day one. Clean code, fast load times, structured data, and Core Web Vitals compliance — so your site gets found organically.</p>
+      </div>
+    </div>
+
+    <div class="why-card glass reveal" style="transition-delay:.32s">
+      <div class="why-icon" style="background:linear-gradient(135deg,#a29bfe,#6c63ff)">☁️</div>
+      <div class="why-body">
+        <h3 class="why-title">Cloud Hosting</h3>
+        <p class="why-desc">We deploy on enterprise-grade cloud infrastructure — 99.9% uptime, global CDN, automatic backups, and SSL included. Your site stays fast and always online.</p>
+      </div>
+    </div>
+
+    <div class="why-card glass reveal" style="transition-delay:.4s">
+      <div class="why-icon" style="background:linear-gradient(135deg,#00d4aa,#6c63ff)">🤖</div>
+      <div class="why-body">
+        <h3 class="why-title">AI-Powered Workflow</h3>
+        <p class="why-desc">From smart content generation to automated testing, we embed AI at every stage of development — delivering higher quality output in less time for you.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-head center reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions We<br>Hear Most</h2>
+    <p class="section-sub">Everything you need to know about working with HYTRIX. Can't find your answer? Just reach out.</p>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item glass reveal" data-faq><div class="faq-q">How long does a typical project take?<span class="faq-icon">+</span></div><div class="faq-a"><p>Most projects are completed within 4–12 weeks depending on scope and complexity. A 5-page website typically takes 3–5 weeks, while larger web applications or full brand identities may take 8–16 weeks. We'll provide a detailed timeline during our kickoff call.</p></div></div>
+    <div class="faq-item glass reveal" data-faq><div class="faq-q">Do you work with startups or only established companies?<span class="faq-icon">+</span></div><div class="faq-a"><p>We work with companies at every stage — from pre-seed startups building their first MVP to Fortune 500 companies undergoing digital transformation. Our Starter package is specifically designed for early-stage businesses with tighter budgets.</p></div></div>
+    <div class="faq-item glass reveal" data-faq><div class="faq-q">What is your payment structure?<span class="faq-icon">+</span></div><div class="faq-a"><p>We typically structure payments as 40% upfront to begin work, 30% at the midpoint milestone, and 30% upon project delivery. For larger enterprise projects, custom payment schedules can be arranged. We accept bank transfer, Stripe, and major credit cards.</p></div></div>
+    <div class="faq-item glass reveal" data-faq><div class="faq-q">Do you offer ongoing maintenance and support?<span class="faq-icon">+</span></div><div class="faq-a"><p>Yes — all projects include a 30-day post-launch support period. We also offer monthly maintenance retainers that include updates, performance monitoring, security patches, and priority support. Retainers start from ₹42,000/month.</p></div></div>
+    <div class="faq-item glass reveal" data-faq><div class="faq-q">Will my website be optimised for mobile and search engines?<span class="faq-icon">+</span></div><div class="faq-a"><p>Absolutely. Every website we build is fully mobile-responsive and built with Core Web Vitals and technical SEO best practices from the ground up. We aim for 95+ Lighthouse scores and ensure your site is structured for maximum organic visibility.</p></div></div>
+    <div class="faq-item glass reveal" data-faq><div class="faq-q">What technologies do you use?<span class="faq-icon">+</span></div><div class="faq-a"><p>Our primary stack includes Next.js, React, TypeScript, Tailwind CSS, and Framer Motion for frontend. For backends we work with Node.js, Supabase, Prisma, and various headless CMS platforms like Sanity and Contentful.</p></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrap" style="max-width:640px;grid-template-columns:1fr;display:grid;gap:4rem">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Ready to Build<br>Something<br><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Extraordinary?</span></h2>
+      <p class="section-sub" style="margin-bottom:3rem">Tell us about your project and we'll get back to you within 24 hours with a tailored proposal.</p>
+      <div class="contact-info">
+        <div class="contact-item"><div class="contact-icon">📧</div><div class="contact-detail"><h4>Email Us</h4><p>hytrixweb@gmail.com</p></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-detail"><h4>Headquarters</h4><p>Tamil Nadu, India</p></div></div>
+        <div class="contact-item"><div class="contact-icon">⏰</div><div class="contact-detail"><h4>Response Time</h4><p>Within 24 hours, guaranteed</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo" style="font-size:1.6rem"><span class="logo-white">HY</span><span class="logo-neon">TR</span><span class="logo-white">IX</span></span>
+      <p class="footer-desc" style="margin-top:1rem">A premium digital agency building bold brands and high-performance web experiences for visionary companies worldwide.</p>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="#services">UI/UX Design</a></li><li><a href="#services">Web Development</a></li><li><a href="#services">Brand Identity</a></li><li><a href="#services">E-Commerce</a></li><li><a href="#services">SEO & Growth</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="#why">Why HYTRIX</a></li><li><a href="#portfolio">Our Work</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Resources</h5><ul><li><a href="#">Case Studies</a></li><li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">Why Us</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 HYTRIX Agency. All rights reserved. Crafted with ♥ for exceptional brands.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+
+
+
+<!-- Case Study Modal -->
+<div class="modal-backdrop" id="caseModal" role="dialog" aria-modal="true">
+  <div class="modal" id="modalInner">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-thumb" id="modalThumb"></div>
+    <div class="modal-body">
+      <div class="modal-cat" id="modalCat"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-stats" id="modalStats"></div>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="modal-cta">
+        <button class="btn-primary" onclick="scrollToSection('#contact');closeModal()">Start a Similar Project →</button>
+        <button class="btn-outline" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Case Study Modal -->
+<div class="modal-backdrop" id="caseModal" role="dialog" aria-modal="true">
+  <div class="modal" id="modalInner">
+    <button class="modal-close" id="modalClose" aria-label="Close">&#x2715;</button>
+    <div class="modal-thumb" id="modalThumb"></div>
+    <div class="modal-body">
+      <div class="modal-cat" id="modalCat"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-stats" id="modalStats"></div>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="modal-cta">
+        <button class="btn-primary" onclick="scrollToSection('#contact');closeModal()">Start a Similar Project &rarr;</button>
+        <button class="btn-outline" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Global functions — must be in global scope for inline onclick handlers */
+function scrollToSection(id){var el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+function closeMobile(){var m=document.getElementById('mobileMenu');if(m)m.classList.remove('open');}
+function closeModal(){var m=document.getElementById('caseModal');if(m)m.classList.remove('open');document.body.style.overflow='';}
+
+/* Demo sites */
+var demos={
+  restaurant:{title:'SpiceRoute Restaurant',html:``},
+  fashion:{title:'LuxeStore Fashion',html:``},
+  clinic:{title:'CarePoint Clinic',html:``}
+};
+demos.restaurant.html = `
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap');
+.sr-wrap *{box-sizing:border-box;margin:0;padding:0}
+.sr-wrap{font-family:'Outfit',sans-serif;background:#0c0400;color:#f5ede0;min-height:100%}
+.sr-nav{position:sticky;top:0;z-index:100;background:rgba(12,4,0,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(249,115,22,.12);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.sr-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:#f97316;letter-spacing:-.01em}
+.sr-navlinks{display:flex;gap:2rem}
+.sr-navlinks a{color:#c4a882;text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.04em;transition:color .2s}
+.sr-navlinks a:hover{color:#f97316}
+.sr-nav-cta{background:#f97316;color:#fff;padding:.5rem 1.3rem;border-radius:50px;font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:opacity .2s}
+.sr-nav-cta:hover{opacity:.85}
+.sr-hero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem 4rem}
+.sr-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(249,115,22,.18),transparent 70%),linear-gradient(180deg,#0c0400,#1a0800)}
+.sr-hero-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#f97316 0,#f97316 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.sr-hero-content{position:relative;z-index:1;max-width:600px}
+.sr-badge{display:inline-block;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.3);color:#f97316;font-size:.7rem;font-weight:600;letter-spacing:.15em;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.5rem;text-transform:uppercase}
+.sr-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;line-height:1.05;margin-bottom:1.2rem;color:#f5ede0}
+.sr-hero h1 em{color:#f97316;font-style:normal}
+.sr-hero p{color:#c4a882;font-size:1rem;line-height:1.75;margin-bottom:2rem;font-weight:300}
+.sr-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.sr-btn-primary{background:#f97316;color:#fff;padding:.8rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(249,115,22,.35)}
+.sr-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(249,115,22,.5)}
+.sr-btn-outline{background:transparent;border:1px solid rgba(249,115,22,.4);color:#f97316;padding:.8rem 1.8rem;border-radius:50px;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s}
+.sr-btn-outline:hover{background:rgba(249,115,22,.08)}
+.sr-divider{text-align:center;padding:1.5rem;color:rgba(196,168,130,.3);font-size:1.2rem;letter-spacing:.5rem}
+.sr-menu{padding:3rem 2rem;background:#0f0500}
+.sr-section-label{font-size:.7rem;font-weight:600;letter-spacing:.18em;color:#f97316;text-transform:uppercase;margin-bottom:.5rem;text-align:center}
+.sr-section-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;text-align:center;margin-bottom:2.5rem;color:#f5ede0}
+.sr-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.sr-card{background:linear-gradient(145deg,#1a0900,#120600);border:1px solid rgba(249,115,22,.1);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s}
+.sr-card:hover{transform:translateY(-4px);border-color:rgba(249,115,22,.3)}
+.sr-card-img{height:100px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:radial-gradient(circle,rgba(249,115,22,.1),transparent 70%)}
+.sr-card-body{padding:1rem}
+.sr-card-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.25rem}
+.sr-card-desc{color:#c4a882;font-size:.8rem;line-height:1.5;margin-bottom:.75rem;font-weight:300}
+.sr-card-footer{display:flex;align-items:center;justify-content:space-between}
+.sr-price{color:#f97316;font-weight:700;font-size:.95rem}
+.sr-order-btn{background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.3);color:#f97316;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;cursor:pointer;transition:all .2s}
+.sr-order-btn:hover{background:#f97316;color:#fff}
+.sr-cta{background:linear-gradient(135deg,#1a0800,#0f0400);border-top:1px solid rgba(249,115,22,.1);padding:3rem 2rem;text-align:center}
+.sr-cta h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:.5rem}
+.sr-cta p{color:#c4a882;font-size:.9rem;margin-bottom:1.5rem;font-weight:300}
+.sr-wa-btn{display:inline-flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;padding:.85rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+.sr-wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.5)}
+.sr-footer{background:#080300;border-top:1px solid rgba(249,115,22,.08);padding:1.5rem 2rem;text-align:center;color:rgba(196,168,130,.4);font-size:.8rem}
+</style>
+<div class="sr-wrap">
+  <nav class="sr-nav">
+    <div class="sr-logo">SpiceRoute</div>
+    <div class="sr-navlinks"><a href="#">Menu</a><a href="#">About</a><a href="#">Gallery</a></div>
+    <button class="sr-nav-cta" onclick="window.location.href='tel:+916380319717'">📞 Order Now</button>
+  </nav>
+  <div class="sr-hero">
+    <div class="sr-hero-bg"></div>
+    <div class="sr-hero-pattern"></div>
+    <div class="sr-hero-content">
+      <div class="sr-badge">✦ Authentic South Indian Cuisine</div>
+      <h1>A Taste of <em>Tradition</em><br>in Every Bite</h1>
+      <p>Handcrafted recipes passed down through generations — made fresh daily with the finest local ingredients from Tamil Nadu.</p>
+      <div class="sr-btns">
+        <button class="sr-btn-primary" onclick="document.querySelector('.sr-menu').scrollIntoView({behavior:'smooth'})">🍽️ View Our Menu</button>
+        <button class="sr-btn-outline">View Full Menu</button>
+      </div>
+    </div>
+  </div>
+  <div class="sr-divider">· · · · ·</div>
+  <div class="sr-menu">
+    <div class="sr-section-label">Our Specialities</div>
+    <div class="sr-section-title">Chef's Recommendations</div>
+    <div class="sr-cards">
+      <div class="sr-card"><div class="sr-card-img">🥘</div><div class="sr-card-body"><div class="sr-card-name">Chettinad Curry</div><div class="sr-card-desc">Bold spices, slow-cooked gravy — a true Chettinad classic</div><div class="sr-card-footer"><span class="sr-price">₹220</span><button class="sr-order-btn" onclick="this.textContent='Added ✓';this.style.background='#f97316';this.style.color='#fff'">Order</button></div></div></div>
+      <div class="sr-card"><div class="sr-card-img">🍛</div><div class="sr-card-body"><div class="sr-card-name">Biryani Royale</div><div class="sr-card-desc">Dum-cooked basmati with hand-ground masalas and raita</div><div class="sr-card-footer"><span class="sr-price">₹320</span><button class="sr-order-btn" onclick="this.textContent='Added ✓';this.style.background='#f97316';this.style.color='#fff'">Order</button></div></div></div>
+      <div class="sr-card"><div class="sr-card-img">🫓</div><div class="sr-card-body"><div class="sr-card-name">Ghee Roast Dosa</div><div class="sr-card-desc">Crispy dosa with a generous pour of pure cow ghee</div><div class="sr-card-footer"><span class="sr-price">₹120</span><button class="sr-order-btn" onclick="this.textContent='Added ✓';this.style.background='#f97316';this.style.color='#fff'">Order</button></div></div></div>
+      <div class="sr-card"><div class="sr-card-img">🍮</div><div class="sr-card-body"><div class="sr-card-name">Filter Coffee Set</div><div class="sr-card-desc">Traditional decoction with fresh milk — served in davara</div><div class="sr-card-footer"><span class="sr-price">₹60</span><button class="sr-order-btn" onclick="this.textContent='Added ✓';this.style.background='#f97316';this.style.color='#fff'">Order</button></div></div></div>
+    </div>
+  </div>
+  <div class="sr-cta">
+    <h2>Ready to Order?</h2>
+    <p>Call us or visit in person — we'll be happy to take your order.</p>
+    <a href="tel:+916380319717" class="sr-wa-btn">📞 Call to Order</a>
+  </div>
+  <div class="sr-footer">Tamil Nadu, India &nbsp;·&nbsp; Open Daily 8am – 10pm &nbsp;·&nbsp; Call: +91 6380319717</div>
+</div>`;
+
+demos.fashion.html = `
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap');
+.lx-wrap *{box-sizing:border-box;margin:0;padding:0}
+.lx-wrap{font-family:'Jost',sans-serif;background:#f8f5f0;color:#1a1410;min-height:100%}
+.lx-nav{position:sticky;top:0;z-index:100;background:rgba(248,245,240,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,20,16,.08);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.lx-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:.08em;color:#1a1410;text-transform:uppercase}
+.lx-navlinks{display:flex;gap:2rem}
+.lx-navlinks a{color:#8a7060;text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.lx-navlinks a:hover{color:#1a1410}
+.lx-nav-cta{background:#1a1410;color:#f8f5f0;padding:.55rem 1.4rem;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.lx-nav-cta:hover{background:#3d2b1f}
+.lx-hero{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.lx-hero-left{background:#1a1410;display:flex;align-items:center;padding:4rem 3rem;position:relative;overflow:hidden}
+.lx-hero-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 30% 60%,rgba(212,160,100,.12),transparent)}
+.lx-hero-left-content{position:relative;z-index:1}
+.lx-hero-tag{font-size:.7rem;font-weight:500;letter-spacing:.2em;color:#c9956a;text-transform:uppercase;margin-bottom:1.2rem}
+.lx-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem;color:#f5ede4}
+.lx-hero p{color:#8a7060;font-size:.9rem;line-height:1.8;margin-bottom:2rem;font-weight:300;max-width:320px}
+.lx-btn-gold{background:linear-gradient(135deg,#c9956a,#e8b88a);color:#1a1410;padding:.8rem 2rem;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:opacity .2s}
+.lx-btn-gold:hover{opacity:.85}
+.lx-hero-right{background:#ede8e1;display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;overflow:hidden}
+.lx-hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(201,149,106,.15),transparent 70%)}
+.lx-products{padding:3.5rem 2rem;background:#f8f5f0}
+.lx-section-tag{font-size:.7rem;font-weight:500;letter-spacing:.2em;color:#c9956a;text-transform:uppercase;text-align:center;margin-bottom:.4rem}
+.lx-section-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-align:center;margin-bottom:2.5rem;color:#1a1410}
+.lx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem}
+.lx-product{background:#fff;border:1px solid rgba(26,20,16,.06);overflow:hidden;transition:box-shadow .3s}
+.lx-product:hover{box-shadow:0 8px 40px rgba(26,20,16,.12)}
+.lx-product-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:#f0ebe4}
+.lx-product-body{padding:1rem}
+.lx-product-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;margin-bottom:.2rem}
+.lx-product-sub{color:#8a7060;font-size:.75rem;margin-bottom:.6rem;font-weight:300}
+.lx-product-row{display:flex;align-items:center;justify-content:space-between}
+.lx-product-price{font-weight:600;font-size:.9rem;color:#1a1410}
+.lx-add-btn{background:#1a1410;color:#f8f5f0;border:none;padding:.35rem .9rem;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.lx-add-btn:hover{background:#c9956a}
+.lx-cta{background:#1a1410;padding:3rem 2rem;text-align:center;color:#f5ede4}
+.lx-cta h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:.5rem}
+.lx-cta p{color:#8a7060;font-size:.88rem;margin-bottom:1.5rem;font-weight:300}
+.lx-wa-btn{display:inline-flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;padding:.85rem 2rem;font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s}
+.lx-wa-btn:hover{opacity:.88}
+.lx-footer{background:#120e0a;border-top:1px solid rgba(255,255,255,.05);padding:1.2rem 2rem;text-align:center;color:rgba(138,112,96,.5);font-size:.75rem;letter-spacing:.05em}
+</style>
+<div class="lx-wrap">
+  <nav class="lx-nav">
+    <div class="lx-logo">LuxeStore</div>
+    <div class="lx-navlinks"><a href="#">Women</a><a href="#">Men</a><a href="#">New In</a><a href="#">Sale</a></div>
+    <button class="lx-nav-cta" onclick="document.querySelector('.lx-products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+  </nav>
+  <div class="lx-hero">
+    <div class="lx-hero-left">
+      <div class="lx-hero-left-content">
+        <div class="lx-hero-tag">New Collection · 2025</div>
+        <h1>Wear What<br>You Feel</h1>
+        <p>Curated fashion for the discerning individual. Premium fabrics, timeless silhouettes, delivered to your door.</p>
+        <button class="lx-btn-gold" onclick="document.querySelector('.lx-products').scrollIntoView({behavior:'smooth'})">Shop Collection</button>
+      </div>
+    </div>
+    <div class="lx-hero-right">
+      <span style="position:relative;z-index:1">👗</span>
+    </div>
+  </div>
+  <div class="lx-products">
+    <div class="lx-section-tag">Featured This Week</div>
+    <div class="lx-section-title">New Arrivals</div>
+    <div class="lx-grid">
+      <div class="lx-product"><div class="lx-product-img">👗</div><div class="lx-product-body"><div class="lx-product-name">Floral Maxi Dress</div><div class="lx-product-sub">Summer Collection</div><div class="lx-product-row"><span class="lx-product-price">₹1,299</span><button class="lx-add-btn" onclick="this.textContent='✓ Added';this.style.background='#c9956a'">Add</button></div></div></div>
+      <div class="lx-product"><div class="lx-product-img">👔</div><div class="lx-product-body"><div class="lx-product-name">Linen Shirt</div><div class="lx-product-sub">Classic Fit</div><div class="lx-product-row"><span class="lx-product-price">₹899</span><button class="lx-add-btn" onclick="this.textContent='✓ Added';this.style.background='#c9956a'">Add</button></div></div></div>
+      <div class="lx-product"><div class="lx-product-img">👖</div><div class="lx-product-body"><div class="lx-product-name">Slim Chinos</div><div class="lx-product-sub">Essential Wardrobe</div><div class="lx-product-row"><span class="lx-product-price">₹1,099</span><button class="lx-add-btn" onclick="this.textContent='✓ Added';this.style.background='#c9956a'">Add</button></div></div></div>
+      <div class="lx-product"><div class="lx-product-img">🧥</div><div class="lx-product-body"><div class="lx-product-name">Premium Blazer</div><div class="lx-product-sub">Evening Wear</div><div class="lx-product-row"><span class="lx-product-price">₹2,499</span><button class="lx-add-btn" onclick="this.textContent='✓ Added';this.style.background='#c9956a'">Add</button></div></div></div>
+    </div>
+  </div>
+  <div class="lx-cta">
+    <h2>Order &amp; Enquiries</h2>
+    <p>Browse our collection and place your order online. Free delivery across Tamil Nadu.</p>
+    <a href="mailto:hytrixweb@gmail.com?subject=Order Enquiry — LuxeStore" class="lx-wa-btn">🛍️ Email to Order</a>
+  </div>
+  <div class="lx-footer">LuxeStore · Tamil Nadu, India · COD Available · Free Delivery</div>
+</div>`;
+
+demos.clinic.html = `
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+.cp-wrap *{box-sizing:border-box;margin:0;padding:0}
+.cp-wrap{font-family:'Plus Jakarta Sans',sans-serif;background:#f0f7f5;color:#0d2b22;min-height:100%}
+.cp-nav{position:sticky;top:0;z-index:100;background:rgba(240,247,245,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,160,120,.1);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.cp-logo{display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:1.1rem;color:#00a078}
+.cp-logo-icon{width:32px;height:32px;background:#00a078;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.cp-navlinks{display:flex;gap:1.5rem}
+.cp-navlinks a{color:#4a7a6a;text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.cp-navlinks a:hover{color:#00a078}
+.cp-nav-cta{background:#00a078;color:#fff;padding:.55rem 1.3rem;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .2s}
+.cp-nav-cta:hover{background:#008060}
+.cp-hero{background:linear-gradient(135deg,#0d2b22,#0a3d2e);padding:4rem 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;position:relative;overflow:hidden}
+.cp-hero::before{content:'';position:absolute;right:-60px;top:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,212,170,.15),transparent 70%);border-radius:50%}
+.cp-hero-tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.25);color:#00d4aa;font-size:.72rem;font-weight:600;letter-spacing:.1em;padding:.3rem .9rem;border-radius:50px;margin-bottom:1.2rem;text-transform:uppercase}
+.cp-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;margin-bottom:1rem;color:#f0faf7}
+.cp-hero h1 span{color:#00d4aa}
+.cp-hero p{color:#7ab89a;font-size:.9rem;line-height:1.75;margin-bottom:2rem;font-weight:300;max-width:380px}
+.cp-hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.cp-btn-primary{background:#00d4aa;color:#0d2b22;padding:.8rem 1.8rem;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .2s}
+.cp-btn-primary:hover{opacity:.88}
+.cp-btn-outline{background:transparent;border:1px solid rgba(0,212,170,.35);color:#00d4aa;padding:.8rem 1.6rem;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s}
+.cp-btn-outline:hover{background:rgba(0,212,170,.08)}
+.cp-hero-badge{background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.2);border-radius:16px;padding:1.5rem;text-align:center;min-width:140px;position:relative;z-index:1}
+.cp-hero-badge-num{font-size:2rem;font-weight:800;color:#00d4aa;line-height:1}
+.cp-hero-badge-label{color:#7ab89a;font-size:.75rem;margin-top:.3rem;font-weight:400}
+.cp-services{padding:3rem 2rem;background:#fff}
+.cp-section-tag{font-size:.7rem;font-weight:600;letter-spacing:.15em;color:#00a078;text-transform:uppercase;text-align:center;margin-bottom:.4rem}
+.cp-section-title{font-size:1.6rem;font-weight:800;text-align:center;margin-bottom:2rem;color:#0d2b22}
+.cp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
+.cp-service-card{background:#f0f7f5;border:1px solid rgba(0,160,120,.1);border-radius:14px;padding:1.25rem;text-align:center;transition:all .3s}
+.cp-service-card:hover{background:#e0f2ec;border-color:rgba(0,160,120,.25);transform:translateY(-3px)}
+.cp-service-icon{font-size:2rem;margin-bottom:.6rem}
+.cp-service-name{font-weight:700;font-size:.9rem;color:#0d2b22;margin-bottom:.2rem}
+.cp-service-tag{font-size:.72rem;color:#4a7a6a;font-weight:400}
+.cp-doctors{padding:3rem 2rem;background:#f0f7f5}
+.cp-doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.cp-doc-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(0,160,120,.08);transition:box-shadow .3s}
+.cp-doc-card:hover{box-shadow:0 8px 30px rgba(0,160,120,.12)}
+.cp-doc-avatar{height:100px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,#e0f2ec,#c8eee4)}
+.cp-doc-body{padding:1rem}
+.cp-doc-name{font-weight:700;font-size:.92rem;color:#0d2b22}
+.cp-doc-role{color:#4a7a6a;font-size:.78rem;margin-bottom:.6rem}
+.cp-doc-avail{display:inline-block;background:#e0f2ec;color:#00a078;font-size:.7rem;font-weight:600;padding:.2rem .7rem;border-radius:50px}
+.cp-cta{background:linear-gradient(135deg,#0d2b22,#0a3d2e);padding:3rem 2rem;text-align:center}
+.cp-cta h2{font-size:1.6rem;font-weight:800;color:#f0faf7;margin-bottom:.5rem}
+.cp-cta p{color:#7ab89a;font-size:.88rem;margin-bottom:1.5rem;font-weight:300}
+.cp-wa-btn{display:inline-flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;padding:.85rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:opacity .2s}
+.cp-wa-btn:hover{opacity:.88}
+.cp-footer{background:#081a14;padding:1.2rem 2rem;text-align:center;color:rgba(122,184,154,.35);font-size:.75rem}
+</style>
+<div class="cp-wrap">
+  <nav class="cp-nav">
+    <div class="cp-logo"><div class="cp-logo-icon">🏥</div> CarePoint Clinic</div>
+    <div class="cp-navlinks"><a href="#">Services</a><a href="#">Doctors</a><a href="#">About</a></div>
+    <button class="cp-nav-cta" onclick="document.querySelector('.cp-cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
+  </nav>
+  <div class="cp-hero">
+    <div>
+      <div class="cp-hero-tag">✦ Your Health, Our Priority</div>
+      <h1>Trusted Care,<br><span>Every Step</span></h1>
+      <p>Experienced specialists, modern facilities, and compassionate care — all in one place. Book your appointment in seconds.</p>
+      <div class="cp-hero-btns">
+        <button class="cp-btn-primary" onclick="document.querySelector('.cp-cta').scrollIntoView({behavior:'smooth'})">📅 Book Appointment</button>
+        <button class="cp-btn-outline">Our Services</button>
+      </div>
+    </div>
+    <div class="cp-hero-badge">
+      <div class="cp-hero-badge-num">5000+</div>
+      <div class="cp-hero-badge-label">Happy Patients</div>
+    </div>
+  </div>
+  <div class="cp-services">
+    <div class="cp-section-tag">What We Offer</div>
+    <div class="cp-section-title">Our Specialities</div>
+    <div class="cp-grid">
+      <div class="cp-service-card"><div class="cp-service-icon">🫀</div><div class="cp-service-name">Cardiology</div><div class="cp-service-tag">Heart & Vascular</div></div>
+      <div class="cp-service-card"><div class="cp-service-icon">🧠</div><div class="cp-service-name">Neurology</div><div class="cp-service-tag">Brain & Nerves</div></div>
+      <div class="cp-service-card"><div class="cp-service-icon">🦴</div><div class="cp-service-name">Orthopaedics</div><div class="cp-service-tag">Bones & Joints</div></div>
+      <div class="cp-service-card"><div class="cp-service-icon">🦷</div><div class="cp-service-name">Dental</div><div class="cp-service-tag">Oral Health</div></div>
+      <div class="cp-service-card"><div class="cp-service-icon">👁️</div><div class="cp-service-name">Ophthalmology</div><div class="cp-service-tag">Eye Care</div></div>
+      <div class="cp-service-card"><div class="cp-service-icon">🩺</div><div class="cp-service-name">General</div><div class="cp-service-tag">Primary Care</div></div>
+    </div>
+  </div>
+  <div class="cp-doctors">
+    <div class="cp-section-tag">Meet Our Team</div>
+    <div class="cp-section-title">Our Doctors</div>
+    <div class="cp-doc-grid">
+      <div class="cp-doc-card"><div class="cp-doc-avatar">👨‍⚕️</div><div class="cp-doc-body"><div class="cp-doc-name">Dr. Ramesh Kumar</div><div class="cp-doc-role">Cardiologist · 15 yrs exp</div><span class="cp-doc-avail">Available Today</span></div></div>
+      <div class="cp-doc-card"><div class="cp-doc-avatar">👩‍⚕️</div><div class="cp-doc-body"><div class="cp-doc-name">Dr. Priya Lakshmi</div><div class="cp-doc-role">Neurologist · 12 yrs exp</div><span class="cp-doc-avail">Available Today</span></div></div>
+      <div class="cp-doc-card"><div class="cp-doc-avatar">👨‍⚕️</div><div class="cp-doc-body"><div class="cp-doc-name">Dr. Suresh Babu</div><div class="cp-doc-role">Orthopaedic · 10 yrs exp</div><span class="cp-doc-avail">Available Today</span></div></div>
+    </div>
+  </div>
+  <div class="cp-cta">
+    <h2>Book an Appointment</h2>
+    <p>Mon – Sat, 9am – 7pm · Tamil Nadu, India</p>
+    <a href="tel:+916380319717" class="cp-wa-btn">📞 Call to Book</a>
+  </div>
+  <div class="cp-footer">CarePoint Clinic · Tamil Nadu, India · +91 6380319717</div>
+</div>`;
+
+function openDemo(key){
+  var d=demos[key];
+  document.getElementById('demoTitle').textContent=d.title;
+  document.getElementById('demoContent').innerHTML=d.html;
+  var m=document.getElementById('demoModal');
+  m.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeDemo(){
+  var m=document.getElementById('demoModal');
+  m.style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDemo();});
+
+document.addEventListener('DOMContentLoaded',function(){
+
+  /* Nav hamburger */
+  var ham=document.getElementById('ham');
+  if(ham)ham.addEventListener('click',function(){document.getElementById('mobileMenu').classList.toggle('open');});
+
+  /* FAQ accordion */
+  document.querySelectorAll('[data-faq]').forEach(function(item){
+    var q=item.querySelector('.faq-q');
+    if(q)q.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('[data-faq]').forEach(function(i){i.classList.remove('open');});
+      if(!isOpen)item.classList.add('open');
+    });
+  });
+
+  /* Scroll reveal */
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
+
+  /* Navbar bg on scroll */
+  window.addEventListener('scroll',function(){
+    var nav=document.getElementById('navbar');
+    if(nav)nav.style.background=window.scrollY>80?'rgba(5,5,8,0.92)':'rgba(5,5,8,0.6)';
+  });
+
+
+
+}); /* end DOMContentLoaded */
+</script>
+
+<!-- Floating WhatsApp Button -->
+<a class="wa-float" href="https://wa.me/916380319717" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-float-tooltip">Chat with us</span>
+</a>
+</body>
+</html>
